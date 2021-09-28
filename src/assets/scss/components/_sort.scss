@@ -1,8 +1,7 @@
-@import '../variables';
-
 .sort {
   margin-left: 20px;
   position: relative;
+  
   &__label {
     display: flex;
     align-items: center;
@@ -21,8 +20,8 @@
     }
 
     span {
-      color: $orange;
       border-bottom: 1px dashed $orange;
+      color: $orange;
       cursor: pointer;
     }
   }
@@ -30,16 +29,17 @@
   &__popup {
     position: absolute;
     right: 0;
+    width: 160px;
+    padding: 10px 0;
     margin-top: 15px;
-    background: #ffffff;
-    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.09);
+    background: #fff;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.09);
     border-radius: 10px;
     overflow: hidden;
-    padding: 10px 0;
-    width: 160px;
 
     ul {
       overflow: hidden;
+      
       li {
         padding: 12px 20px;
         cursor: pointer;

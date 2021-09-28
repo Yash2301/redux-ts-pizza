@@ -1,34 +1,30 @@
-@import '../variables';
-
 .categories {
   flex: 1;
   max-width: 80%;
   overflow: auto;
 
-  @media (max-width: 768px) {
-    max-width: 100%;
-    margin-bottom: 30px;
-  }
-
   ul {
     display: flex;
-
+    flex-wrap: wrap;
+    justify-content: space-around;
+    overflow:  hidden;
+  
     li {
-      background-color: #f9f9f9;
+      display: inline-block;
       padding: 13px 30px;
-      border-radius: 30px;
-      margin-right: 10px;
+      border-radius: 50px;
       font-weight: bold;
-      cursor: pointer;
       transition: background-color 0.1s ease-in-out;
+      background-color: $gray;
+      cursor: pointer;
       @include noselect();
-
+  
       &:hover {
-        background-color: darken(#f9f9f9, 2%);
+        background-color: darken($gray, 2%);
       }
 
       &:active {
-        background-color: darken(#f9f9f9, 5%);
+        background-color: darken($gray, 5%);
       }
 
       &.active {

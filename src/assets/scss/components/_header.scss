@@ -1,22 +1,11 @@
-@import '../variables';
-
 .header {
-  border-bottom: 1px solid $gray-line;
   padding: 40px 0;
+  border-bottom: 1px solid $gray-line;
 
   .container {
     display: flex;
     align-items: center;
     justify-content: space-between;
-    @media (max-width: 768px) {
-      flex-direction: column;
-    }
-  }
-
-  @media (max-width: 768px) {
-    &__cart {
-      margin-top: 30px;
-    }
   }
 
   &__logo {
@@ -27,11 +16,11 @@
     }
 
     h1 {
-      color: #181818;
       font-size: 24px;
-      letter-spacing: 1%;
-      text-transform: uppercase;
       font-weight: 800;
+      letter-spacing: 1px;
+      text-transform: uppercase;
+      color: #181818;
     }
 
     p {

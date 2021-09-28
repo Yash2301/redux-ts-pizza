@@ -5,7 +5,7 @@ import logoSvg from './assets/img/pizza-logo.svg';
 function App() {
   return (
     <div className="wrapper">
-      <div className="header">
+      <header className="header">
         <div className="container">
           <div className="header__logo">
             <img width="38" src={logoSvg} alt="Pizza logo" />
@@ -50,7 +50,7 @@ function App() {
             </a>
           </div>
         </div>
-      </div>
+      </header>
       <div className="content">
         <div className="container">
           <div className="content__top">
@@ -64,6 +64,7 @@ function App() {
                 <li>Закрытые</li>
               </ul>
             </div>
+
             <div className="sort">
               <div className="sort__label">
                 <svg
@@ -80,6 +81,7 @@ function App() {
                 <b>Сортировка по:</b>
                 <span>популярности</span>
               </div>
+
               <div className="sort__popup">
                 <ul>
                   <li className="active">популярности</li>
@@ -87,11 +89,14 @@ function App() {
                   <li>алфавиту</li>
                 </ul>
               </div>
+
             </div>
+
           </div>
           <h2 className="content__title">Все пиццы</h2>
+
           <div className="content__items">
-            <div className="pizza-block">
+            <section className="pizza-block">
               <img
                 className="pizza-block__image"
                 src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
@@ -127,8 +132,8 @@ function App() {
                   <i>2</i>
                 </div>
               </div>
-            </div>{' '}
-            <div className="pizza-block">
+            </section>{' '}
+            <section className="pizza-block">
               <img
                 className="pizza-block__image"
                 src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
@@ -164,8 +169,8 @@ function App() {
                   <i>2</i>
                 </div>
               </div>
-            </div>{' '}
-            <div className="pizza-block">
+            </section>{' '}
+            <section className="pizza-block">
               <img
                 className="pizza-block__image"
                 src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
@@ -201,8 +206,8 @@ function App() {
                   <i>2</i>
                 </div>
               </div>
-            </div>{' '}
-            <div className="pizza-block">
+            </section>{' '}
+            <section className="pizza-block">
               <img
                 className="pizza-block__image"
                 src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
@@ -238,8 +243,8 @@ function App() {
                   <i>2</i>
                 </div>
               </div>
-            </div>{' '}
-            <div className="pizza-block">
+            </section>{' '}
+            <section className="pizza-block">
               <img
                 className="pizza-block__image"
                 src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
@@ -275,8 +280,8 @@ function App() {
                   <i>2</i>
                 </div>
               </div>
-            </div>{' '}
-            <div className="pizza-block">
+            </section>{' '}
+            <section className="pizza-block">
               <img
                 className="pizza-block__image"
                 src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
@@ -312,8 +317,8 @@ function App() {
                   <i>2</i>
                 </div>
               </div>
-            </div>{' '}
-            <div className="pizza-block">
+            </section>{' '}
+            <section className="pizza-block">
               <img
                 className="pizza-block__image"
                 src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
@@ -349,8 +354,8 @@ function App() {
                   <i>2</i>
                 </div>
               </div>
-            </div>{' '}
-            <div className="pizza-block">
+            </section>{' '}
+            <section className="pizza-block">
               <img
                 className="pizza-block__image"
                 src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
@@ -386,8 +391,8 @@ function App() {
                   <i>2</i>
                 </div>
               </div>
-            </div>{' '}
-            <div className="pizza-block">
+            </section>{' '}
+            <section className="pizza-block">
               <img
                 className="pizza-block__image"
                 src="https://dodopizza-a.akamaihd.net/static/Img/Products/Pizza/ru-RU/b750f576-4a83-48e6-a283-5a8efb68c35d.jpg"
@@ -423,7 +428,7 @@ function App() {
                   <i>2</i>
                 </div>
               </div>
-            </div>
+            </section>
           </div>
         </div>
       </div>
