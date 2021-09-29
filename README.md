@@ -15,5 +15,6 @@ Link on [figma page](https://www.figma.com/file/wWUnQwvRDWBfPx1v1pCAfO/React-Piz
 ## Technologies
 
 - [node-sass](https://github.com/sass/node-sass) module is used to translate the Sass code into CSS code
+- [classnames](https://github.com/JedWatson/classnames) for conditionally joining classNames together.
 
 
