@@ -1,6 +1,5 @@
 import React from 'react';
-import Categories from '../components/Categories';
-import SortPopup from "../components/SortPopup";
+import { Categories, SortPopup } from '../components';
 
 
 interface IHome {
