@@ -8,6 +8,7 @@ interface IHeader {
 
 }
 
+
 const Header = (props: IHeader): JSX.Element => {
   return (
     <header className="header">

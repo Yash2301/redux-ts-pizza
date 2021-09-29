@@ -38,14 +38,14 @@
         @include noselect();
         
         &.active {
-          background: #ffffff;
+          background: #fff;
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.04);
           border-radius: 5px;
           cursor: auto;
         }
         
         &.disabled {
-          opacity: 0.4;
+          opacity: .4;
           pointer-events: none;
         }
       }
@@ -63,6 +63,6 @@
     font-weight: bold;
     font-size: 22px;
     line-height: 27px;
-    letter-spacing: 0.015em;
+    letter-spacing: .015em;
   }
 }

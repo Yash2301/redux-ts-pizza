@@ -23,9 +23,12 @@ Link on [figma page](https://www.figma.com/file/wWUnQwvRDWBfPx1v1pCAfO/React-Piz
 
 ## Technologies
 
+- [typescript-with-react](https://react-typescript-cheatsheet.netlify.app/docs/basic/setup) for static typing TypeScript, allow you to catch most of the errors before the code is executed. In addition, they significantly improve development processes by adding auto-completion and other features.
 - [node-sass](https://github.com/sass/node-sass) module is used to translate the Sass code into CSS code
-- [classnames](https://github.com/JedWatson/classnames) for conditionally joining classNames together.
 - [react-router-dom](https://github.com/remix-run/react-router/tree/main/packages/react-router-dom) navigation on project, switching between pages
+- [classnames](https://github.com/JedWatson/classnames) for conditionally joining classNames together.
+- [axios](https://github.com/axios/axios) is Promise module for client (browser) requests it uses XMLHttpRequests
+
 
 
 
