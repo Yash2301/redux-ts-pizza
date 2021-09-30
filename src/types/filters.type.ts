@@ -1,7 +1,12 @@
-export interface IFiltersState {
-    category: number,
-    sortBy: string,
+export interface IFiltersSortByState {
+    type: string,
+    order: string
 }
+export interface IFiltersState {
+    category: null | number,
+    sortBy: IFiltersSortByState
+}
+
 
 export enum IFiltersActionTypes {
     SET_SORT_BY = 'SET_SORT_BY',
@@ -10,12 +15,12 @@ export enum IFiltersActionTypes {
 
 interface IFiltersSortByAction {
     type: IFiltersActionTypes.SET_SORT_BY,
-    payload: string
+    payload: IFiltersSortByState
 }
 
 interface IFiltersCategoryAction {
     type: IFiltersActionTypes.SET_CATEGORY,
-    payload: number
+    payload: null | number
 }
 
 

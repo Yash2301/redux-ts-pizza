@@ -1,17 +1,19 @@
 import React, { useState } from 'react';
 import classNames from 'classnames';
 
-import { IPizzasJson } from "../types/main.type";
+import LoadingBlock from './loading-block.component';
+
+import { IPizzasJson } from "../types/pizzas.type";
 
 
 const PizzaBlock = (props: IPizzasJson) => {
   const { name, imageUrl, price, types, sizes } = props;
 
-  const [ activeType, setActiveType ] = useState(types[ 0 ]);
-  const [ activeSize, setActiveSize ] = useState(sizes[ 0 ]);
-
   const availableTypes: string[] = [ 'тонкое', 'традиционное' ];
   const availableSizes: number[] = [ 26, 30, 40 ];
+
+  const [ activeType, setActiveType ] = useState(types[ 0 ]);
+  const [ activeSize, setActiveSize ] = useState(sizes[ 0 ]);
 
   const onSelectType = (index: number) => setActiveType(index);
 

@@ -4,16 +4,16 @@
 
 <p align="center">
     <a href="https://ru.reactjs.org/">
-        <img src="./screenshots/icon-react.jpg" alt="react-logo" title="react-logo" width="120"/>
+        <img src="./screenshots/icon-react.jpg" alt="react-logo" title="react" width="120"/>
     </a>
     <a href="https://www.typescriptlang.org/">
-        <img src="./screenshots/icon-typescript.jpg" alt="type-script-logo" title="type-script-logo" width="120"/>
+        <img src="./screenshots/icon-typescript.jpg" alt="type-script-logo" title="type-script" width="120"/>
     </a>
     <a href="https://redux.js.org/">
-        <img src="./screenshots/icon-redux.jpg" alt="redux-logo" title="redux-logo" width="120"/>
+        <img src="./screenshots/icon-redux.jpg" alt="redux-logo" title="redux" width="120"/>
     </a>
     <a href="https://reactrouter.com/">
-        <img src="./screenshots/icon-react-router.jpg" alt="react-router" title="react-router" width="120"/>
+        <img src="./screenshots/icon-react-router.jpg" alt="react-router-logo" title="react-router" width="120"/>
     </a>
 </p>
 
@@ -31,6 +31,8 @@ Link on [figma page](https://www.figma.com/file/wWUnQwvRDWBfPx1v1pCAfO/React-Piz
 - [redux](https://redux.js.org/) is Predictable State Container for JS Apps
 - [react-redux](https://react-redux.js.org/) is Official React bindings for Redux
 - [redux-devtools-extension](https://github.com/zalmoxisus/redux-devtools-extension) tracking changes through the browser console in Redux store
+- [redux-thunk](https://github.com/reduxjs/redux-thunk) async middleware for Redux store.
+- [react-content-loader](https://github.com/danilowoz/react-content-loader) component for easily create placeholder loadings
 
 
 

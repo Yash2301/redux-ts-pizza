@@ -2,8 +2,11 @@ import { FiltersAction, IFiltersActionTypes, IFiltersState } from "../../types/f
 
 
 const initialState: IFiltersState = {
-	category: 0,
-	sortBy: 'popular',
+	category: null,
+	sortBy: {
+		type: 'popular',
+		order: 'desc',
+	},
 };
 
 

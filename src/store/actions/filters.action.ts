@@ -1,12 +1,12 @@
-import { FiltersAction, IFiltersActionTypes } from "../../types/filters.type"
+import { FiltersAction, IFiltersActionTypes, IFiltersSortByState } from "../../types/filters.type"
 
 
-export const setSortBy = (name: string): FiltersAction => ({
+export const setSortBy = ({ type, order }: IFiltersSortByState): FiltersAction => ({
 	type: IFiltersActionTypes.SET_SORT_BY,
-	payload: name,
+	payload: { type, order },
 });
 
-export const setCategory = (catIndex: number): FiltersAction => ({
+export const setCategory = (catIndex: number | null): FiltersAction => ({
 	type: IFiltersActionTypes.SET_CATEGORY,
 	payload: catIndex,
 });

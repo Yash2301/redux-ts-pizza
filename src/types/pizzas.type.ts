@@ -1,4 +1,13 @@
-import { IPizzasJson } from "./main.type";
+export interface IPizzasJson {
+    id: number;
+    imageUrl: string;
+    name: string;
+    types: number[];
+    sizes: number[];
+    price: number;
+    category: number;
+    rating: number;
+}
 
 
 export interface IPizzasState {
@@ -8,6 +17,7 @@ export interface IPizzasState {
 
 export enum PizzaActionTypes {
     SET_PIZZAS = 'SET_PIZZAS',
+    SET_LOADED = 'SET_LOADED',
 }
 
 interface IPizzaSetAction {
@@ -15,5 +25,11 @@ interface IPizzaSetAction {
     payload: IPizzasJson[]
 }
 
+interface IPizzaLoadedAction {
+    type: PizzaActionTypes.SET_LOADED;
+    payload: boolean
+}
+
 
 export type PizzaAction = IPizzaSetAction
+  | IPizzaLoadedAction
