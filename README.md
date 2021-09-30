@@ -28,6 +28,10 @@ Link on [figma page](https://www.figma.com/file/wWUnQwvRDWBfPx1v1pCAfO/React-Piz
 - [react-router-dom](https://github.com/remix-run/react-router/tree/main/packages/react-router-dom) navigation on project, switching between pages
 - [classnames](https://github.com/JedWatson/classnames) for conditionally joining classNames together.
 - [axios](https://github.com/axios/axios) is Promise module for client (browser) requests it uses XMLHttpRequests
+- [redux](https://redux.js.org/) is Predictable State Container for JS Apps
+- [react-redux](https://react-redux.js.org/) is Official React bindings for Redux
+- [redux-devtools-extension](https://github.com/zalmoxisus/redux-devtools-extension) tracking changes through the browser console in Redux store
+
 
 
 

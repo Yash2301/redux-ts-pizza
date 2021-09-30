@@ -1,6 +1,6 @@
 import React from 'react';
 import { Categories, PizzaBlock, SortPopup } from '../components';
-import { IPizzasJson } from "../types";
+import { IPizzasJson } from "../types/main.type";
 
 
 interface IHome {
@@ -18,7 +18,13 @@ const Home = (props: IHome) => {
           items={ [ 'Мясные', 'Вегетарианская', 'Гриль', 'Острые', 'Закрытые' ] }
         />
 
-        <SortPopup items={ [ 'популярности', 'цене', 'алфавит' ] } />
+        <SortPopup
+          items={ [
+            { name: 'популярности', type: 'popular' },
+            { name: 'цене', type: 'price' },
+            { name: 'алфавит', type: 'alphabet' },
+          ] }
+        />
       </div>
       <h2 className="content__title">Все пиццы</h2>
 
