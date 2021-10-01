@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 
-import { Categories, PizzaBlock, SortPopup } from '../components';
+import { Categories, PizzaBlock, PizzaLoadingBlock, SortPopup } from '../components';
 import { RootState } from "../store/reducers";
 import { fetchPizzas } from "../store/actions/pizzas.action";
 import { setCategory, setSortBy } from "../store/actions/filters.action";
@@ -61,10 +61,12 @@ const Home = () => {
       <h2 className="content__title">Все пиццы</h2>
 
       <div className="content__items">
-        {
-          items.map((obj) => (
+        { isLoaded
+          ? items.map((obj) => (
             <PizzaBlock key={ obj.id } { ...obj } />
           ))
+          : Array(12).fill(0)
+            .map((_, index) => <PizzaLoadingBlock key={ index } />)
         }
       </div>
     </div>

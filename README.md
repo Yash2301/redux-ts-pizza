@@ -32,7 +32,7 @@ Link on [figma page](https://www.figma.com/file/wWUnQwvRDWBfPx1v1pCAfO/React-Piz
 - [react-redux](https://react-redux.js.org/) is Official React bindings for Redux
 - [redux-devtools-extension](https://github.com/zalmoxisus/redux-devtools-extension) tracking changes through the browser console in Redux store
 - [redux-thunk](https://github.com/reduxjs/redux-thunk) async middleware for Redux store.
-- [react-content-loader](https://github.com/danilowoz/react-content-loader) component for easily create placeholder loadings
+- [react-content-loader](https://github.com/danilowoz/react-content-loader) component for easily create placeholder loadings [Loader template creator](https://skeletonreact.com/)
 
 
 
