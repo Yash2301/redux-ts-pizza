@@ -1,15 +1,18 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import logoSvg from '../assets/img/pizza-logo.svg';
+import { useSelector } from 'react-redux';
+
 import Button from './button.component';
 
+import logoSvg from '../assets/img/pizza-logo.svg';
 
-interface IHeader {
-
-}
+import { RootState } from "../store/reducers";
 
 
-const Header = (props: IHeader): JSX.Element => {
+
+const Header = (): JSX.Element => {
+  const { totalPrice, totalCount } = useSelector(({ cart }: RootState) => cart);
+
   return (
     <header className="header">
       <div className="container">
@@ -28,7 +31,7 @@ const Header = (props: IHeader): JSX.Element => {
 
           <Link to="/cart">
             <Button className="button--cart">
-              <span>520 ₽</span>
+              <span>{ totalPrice } ₽</span>
               <div className="button__delimiter"/>
               <svg
                 width="18"
@@ -58,7 +61,7 @@ const Header = (props: IHeader): JSX.Element => {
                   strokeLinejoin="round"
                 />
               </svg>
-              <span>3</span>
+              <span>{ totalCount }</span>
             </Button>
           </Link>
 
