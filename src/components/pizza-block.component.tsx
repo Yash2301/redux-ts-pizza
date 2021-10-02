@@ -28,8 +28,8 @@ const PizzaBlock = (props: IPizzasJson & IPizzasBlock) => {
   const onAddPizza = () => {
     const obj: IPizzasBlockNewObject = {
       id, name, imageUrl, price,
-      size: availableSizes[activeSize],
-      type: availableTypes[activeType],
+      size: availableSizes[ activeSize ],
+      type: availableTypes[ activeType ],
     };
 
     onClickAddPizza(obj);

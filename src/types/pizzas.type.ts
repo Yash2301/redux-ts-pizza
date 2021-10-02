@@ -15,8 +15,7 @@ export interface IPizzasBlockNewObject {
     imageUrl : string,
     price : number,
     size : number,
-    type : string,
-    length?: number;
+    type : string
 }
 
 
