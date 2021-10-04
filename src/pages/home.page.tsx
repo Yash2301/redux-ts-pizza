@@ -48,7 +48,7 @@ const Home = () => {
   }, []);
 
   const handleAddPizzaToCart = useCallback((newObj: IPizzasBlockNewObject) => {
-    dispatch(addPizzaToCart({ ...newObj, countItem: 1 }));
+    dispatch(addPizzaToCart(newObj));
   }, []);
 
   const countPizzaOnId = (id: number) => cartItems.reduce((sum, item) => {
