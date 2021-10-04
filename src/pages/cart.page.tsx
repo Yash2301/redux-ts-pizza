@@ -9,14 +9,13 @@ import { clearCart, removeCartItem, plusCartItem, minusCartItem } from '../store
 import cartEmptyImage from '../assets/img/empty-cart.png';
 import { RootState } from "../store/reducers";
 
+import { ICartItem } from "../types/cart.type";
+
 
 function Cart() {
   const dispatch = useDispatch();
   const { totalPrice, totalCount, items } = useSelector(({ cart }: RootState) => cart);
 
-  const addedPizzas = Object.keys(items).map((key) => {
-    return items[ parseInt(key) ].items[ 0 ];
-  });
 
   const onClearCart = () => {
     if (window.confirm('Вы действительно хотите очистить корзину?')) {
@@ -41,6 +40,8 @@ function Cart() {
   const onClickOrder = () => {
     console.log('ВАШ ЗАКАЗ', items);
   };
+
+  const countPriceItem = (obj: ICartItem) => obj.countItem * obj.price;
 
   return (
     <div className="content">
@@ -121,15 +122,15 @@ function Cart() {
             </div>
             <div className="content__items">
               {
-                addedPizzas.map((obj) => (
+                items.map((obj) => (
                   <CartItem
                     key={ obj.id }
                     id={ obj.id }
                     name={ obj.name }
                     type={ obj.type }
                     size={ obj.size }
-                    totalPrice={ items[ obj.id ].totalPrice }
-                    totalCount={ items[ obj.id ].items.length }
+                    totalPrice={ countPriceItem(obj) }
+                    totalCount={ obj.countItem }
                     onRemove={ onRemoveItem }
                     onMinus={ onMinusItem }
                     onPlus={ onPlusItem }

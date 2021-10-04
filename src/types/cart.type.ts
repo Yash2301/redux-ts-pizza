@@ -1,16 +1,12 @@
 import { IPizzasBlockNewObject } from "./pizzas.type";
 
-export interface ICartItemInner {
-  items: IPizzasBlockNewObject[],
-  totalPrice: number
-}
 
-export interface ICartItem {
-  [ key: number ] : ICartItemInner
+export interface ICartItem extends IPizzasBlockNewObject {
+  countItem: number
 }
 
 export interface ICartState {
-  items: ICartItem,
+  items: ICartItem[],
   totalPrice: number,
   totalCount: number,
 }
@@ -25,7 +21,7 @@ export enum CartActionTypes {
 
 interface ICartSetAction {
   type: CartActionTypes.ADD_PIZZA_CART;
-  payload: IPizzasBlockNewObject
+  payload: ICartItem
 }
 
 interface ICartClearAction {

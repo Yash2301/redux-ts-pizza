@@ -48,9 +48,14 @@ const Home = () => {
   }, []);
 
   const handleAddPizzaToCart = useCallback((newObj: IPizzasBlockNewObject) => {
-    dispatch(addPizzaToCart(newObj));
+    dispatch(addPizzaToCart({ ...newObj, countItem: 1 }));
   }, []);
 
+  const countPizzaOnId = (id: number) => cartItems.reduce((sum, item) => {
+    return (item.id === id)
+      ? sum + item.countItem
+      : sum;
+  }, 0)
 
   return (
     <div className="container">
@@ -74,7 +79,7 @@ const Home = () => {
           ? items.map((obj) => (
             <PizzaBlock
               onClickAddPizza={ handleAddPizzaToCart }
-              addedCount={ cartItems[ obj.id ] && cartItems[ obj.id ].items.length }
+              addedCount={ countPizzaOnId(obj.id) }
               { ...obj }
               key={ obj.id }
             />

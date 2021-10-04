@@ -1,8 +1,8 @@
-import { CartAction, CartActionTypes } from "../../types/cart.type";
+import { CartAction, CartActionTypes, ICartItem } from "../../types/cart.type";
 import { IPizzasBlockNewObject } from "../../types/pizzas.type";
 
 
-export const addPizzaToCart = (pizzaObj: IPizzasBlockNewObject): CartAction => ({
+export const addPizzaToCart = (pizzaObj: ICartItem): CartAction => ({
   type: CartActionTypes.ADD_PIZZA_CART,
   payload: pizzaObj,
 });
