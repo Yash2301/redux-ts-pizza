@@ -21,7 +21,7 @@ export const plusCartItem = (index: number): CartAction => ({
   payload: index,
 });
 
-export const minusCartItem = (id: number): CartAction => ({
+export const minusCartItem = (index: number): CartAction => ({
   type: CartActionTypes.MINUS_CART_ITEM,
-  payload: id,
+  payload: index,
 });

@@ -33,8 +33,8 @@ function Cart() {
     dispatch(plusCartItem(index));
   };
 
-  const onMinusItem = (id: number) => {
-    dispatch(minusCartItem(id));
+  const onMinusItem = (index: number) => {
+    dispatch(minusCartItem(index));
   };
 
   const onClickOrder = () => {
@@ -43,7 +43,11 @@ function Cart() {
 
   const countPriceItem = (obj: ICartItem) => obj.countItem * obj.price;
 
-  const generateKey = (pre: string) => {
+  const generateKey = (pre: any) => {
+    if (typeof pre === 'object' && pre !== null) {
+      pre = JSON.stringify(pre);
+    }
+
     return `${ pre }_${ new Date().getTime() }`;
   }
 
@@ -128,15 +132,14 @@ function Cart() {
               {
                 items.map((obj, index) => (
                   <CartItem
-                    key={ generateKey(index + "") }
-                    id={ obj.id }
+                    key={ generateKey(obj) }
                     name={ obj.name }
                     type={ obj.type }
                     size={ obj.size }
                     totalPrice={ countPriceItem(obj) }
                     totalCount={ obj.countItem }
                     onRemove={ () => onRemoveItem(index) }
-                    onMinus={ onMinusItem }
+                    onMinus={ () => onMinusItem(index) }
                     onPlus={ () => onPlusItem(index) }
                   />
                 ))
@@ -152,7 +155,7 @@ function Cart() {
                 </span>
               </div>
               <div className="cart__bottom-buttons">
-                <a href="/" className="button button--outline button--add go-back-btn">
+                <Link to="/" className="button button--outline button--add go-back-btn">
                   <svg
                     width="8"
                     height="14"
@@ -167,11 +170,9 @@ function Cart() {
                       strokeLinejoin="round"
                     />
                   </svg>
-                  <Link to="/">
-                    <span>Вернуться назад</span>
-                  </Link>
-                </a>
-                <Button onClick={onClickOrder} className="pay-btn">
+                  <span>Вернуться назад</span>
+                </Link>
+                <Button onClick={ onClickOrder } className="pay-btn">
                   <span>Оплатить сейчас</span>
                 </Button>
               </div>

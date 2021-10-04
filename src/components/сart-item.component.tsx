@@ -6,25 +6,21 @@ import { ICartState } from "../types/cart.type";
 
 
 interface ICartItem extends
-  Omit<IPizzasBlockNewObject, "imageUrl" | "price">,
+  Omit<IPizzasBlockNewObject, "id" | "imageUrl" | "price">,
   Omit<ICartState, "items">
 {
   onRemove: () => void,
-  onMinus: (id: number) => void,
+  onMinus: () => void,
   onPlus: () => void
 }
 
 
 const CartItem = (props: ICartItem) => {
   const {
-    id, name, type, size,
+    name, type, size,
     totalPrice, totalCount,
     onRemove, onMinus, onPlus
   } = props;
-
-  const handleMinusItem = () => {
-    onMinus(id);
-  };
 
   return (
     <div className="cart__item">
@@ -43,7 +39,7 @@ const CartItem = (props: ICartItem) => {
       </div>
       <div className="cart__item-count">
         <div
-          onClick={handleMinusItem}
+          onClick={ onMinus }
           className="button button--outline button--circle cart__item-count-minus">
           <svg
             width="10"

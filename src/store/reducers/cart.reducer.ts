@@ -73,14 +73,14 @@ const cartReducer = (state = initialState, action: CartAction): ICartState => {
       const indexInItem = action.payload;
       newItems.splice(indexInItem, 1);
 
-      const currentTotalCount= getTotalCount(newItems);
-      const currentTotalPrice = getTotalPrice(newItems, currentTotalCount);
+      const totalCount = getTotalCount(newItems);
+      const totalPrice = getTotalPrice(newItems, totalCount);
 
       return {
         ...state,
         items: newItems,
-        totalPrice: currentTotalPrice,
-        totalCount: currentTotalCount,
+        totalPrice,
+        totalCount
       };
     }
 
@@ -93,41 +93,40 @@ const cartReducer = (state = initialState, action: CartAction): ICartState => {
         ...state.items.slice(indexInItem + 1)
       ];
 
-      const currentTotalCount= getTotalCount(newItems);
-      const currentTotalPrice = getTotalPrice(newItems, currentTotalCount);
+      const totalCount = getTotalCount(newItems);
+      const totalPrice = getTotalPrice(newItems, totalCount);
 
       return {
         ...state,
         items: newItems,
-        totalPrice: currentTotalPrice,
-        totalCount: currentTotalCount,
+        totalPrice,
+        totalCount
       };
     }
 
-    // case CartActionTypes.MINUS_CART_ITEM: {
-    //   const oldItems = state.items[ action.payload ].items;
-    //   const newObjItems = oldItems.length > 1
-    //     ? state.items[ action.payload ].items.slice(1)
-    //     : oldItems;
-    //
-    //   const newItems = {
-    //     ...state.items,
-    //     [ action.payload ]: {
-    //       items: newObjItems,
-    //       totalPrice: getTotalPrice(newObjItems),
-    //     },
-    //   };
-    //
-    //   const totalCount = getTotalSum(newItems, 'items.length');
-    //   const totalPrice = getTotalSum(newItems, 'totalPrice');
-    //
-    //   return {
-    //     ...state,
-    //     items: newItems,
-    //     totalCount,
-    //     totalPrice,
-    //   };
-    // }
+    case CartActionTypes.MINUS_CART_ITEM: {
+      const indexInItem = action.payload;
+
+      if (state.items[ indexInItem ].countItem > 1) {
+        const newItems = [
+          ...state.items.slice(0, indexInItem),
+          { ...state.items[ indexInItem ], countItem: state.items[ indexInItem ].countItem - 1 },
+          ...state.items.slice(indexInItem + 1)
+        ];
+
+        const totalCount = getTotalCount(newItems);
+        const totalPrice = getTotalPrice(newItems, totalCount);
+
+        return {
+          ...state,
+          items: newItems,
+          totalPrice,
+          totalCount
+        };
+      }
+
+      return { ...state };
+    }
 
     case CartActionTypes.CLEAR_CART:
       return { totalPrice: 0, totalCount: 0, items: [] };
