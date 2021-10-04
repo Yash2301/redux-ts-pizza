@@ -9,7 +9,7 @@ interface ICartItem extends
   Omit<IPizzasBlockNewObject, "imageUrl" | "price">,
   Omit<ICartState, "items">
 {
-  onRemove: (id: number) => void,
+  onRemove: () => void,
   onMinus: (id: number) => void,
   onPlus: (id: number) => void
 }
@@ -22,9 +22,9 @@ const CartItem = (props: ICartItem) => {
     onRemove, onMinus, onPlus
   } = props;
 
-  const handleRemoveClick = () => {
-    onRemove(id);
-  };
+  // const handleRemoveClick = () => {
+  //   onRemove(id);
+  // };
 
   const handlePlusItem = () => {
     onPlus(id);
@@ -94,7 +94,7 @@ const CartItem = (props: ICartItem) => {
         <b>{totalPrice} ₽</b>
       </div>
       <div className="cart__item-remove">
-        <Button onClick={handleRemoveClick} className="button--circle" outline>
+        <Button onClick={ onRemove } className="button--circle" outline>
           <svg
             width="10"
             height="10"

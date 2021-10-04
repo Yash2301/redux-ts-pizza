@@ -23,9 +23,9 @@ function Cart() {
     }
   };
 
-  const onRemoveItem = (id: number) => {
+  const onRemoveItem = (index: number) => {
     if (window.confirm('Вы действительно хотите удалить?')) {
-      dispatch(removeCartItem(id));
+      dispatch(removeCartItem(index));
     }
   };
 
@@ -42,6 +42,10 @@ function Cart() {
   };
 
   const countPriceItem = (obj: ICartItem) => obj.countItem * obj.price;
+
+  const generateKey = (pre: string) => {
+    return `${ pre }_${ new Date().getTime() }`;
+  }
 
   return (
     <div className="content">
@@ -122,16 +126,16 @@ function Cart() {
             </div>
             <div className="content__items">
               {
-                items.map((obj) => (
+                items.map((obj, index) => (
                   <CartItem
-                    key={ obj.id }
+                    key={ generateKey(index + "") }
                     id={ obj.id }
                     name={ obj.name }
                     type={ obj.type }
                     size={ obj.size }
                     totalPrice={ countPriceItem(obj) }
                     totalCount={ obj.countItem }
-                    onRemove={ onRemoveItem }
+                    onRemove={ () => onRemoveItem(index) }
                     onMinus={ onMinusItem }
                     onPlus={ onPlusItem }
                   />

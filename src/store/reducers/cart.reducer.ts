@@ -30,7 +30,7 @@ const isEqualObjects = <T extends ICartItem, O extends T>(object1: T, object2: O
   return true;
 }
 
-const getTotalPrice = (arr: ICartItem[], count: number) => arr.reduce((sum, obj) => (obj.price * count) + sum, 0);
+const getTotalPrice = (arr: ICartItem[], count: number) => arr.reduce((sum, obj) => sum = (obj.price * count) , 0);
 
 const getTotalCount = (takeObject: ICartItem[]): number => {
   return takeObject.reduce((sum: number, obj) => {
@@ -66,22 +66,23 @@ const cartReducer = (state = initialState, action: CartAction): ICartState => {
       };
     }
 
-    // case CartActionTypes.REMOVE_CART_ITEM: {
-    //   const obj2 = { ...state.items };
-    //   const newItems = JSON.parse( JSON.stringify(obj2) ); // deep copy
-    //
-    //   const currentTotalPrice = newItems[ action.payload ].totalPrice;
-    //   const currentTotalCount = newItems[ action.payload ].items.length;
-    //
-    //   delete newItems[ action.payload ];
-    //
-    //   return {
-    //     ...state,
-    //     items: newItems,
-    //     totalPrice: state.totalPrice - currentTotalPrice,
-    //     totalCount: state.totalCount - currentTotalCount,
-    //   };
-    // }
+    case CartActionTypes.REMOVE_CART_ITEM: {
+      const newItems = JSON.parse(JSON.stringify(state.items)); // deep copy
+
+      // remove form item array. Use index element
+      const indexInItem = action.payload;
+      newItems.splice(indexInItem, 1);
+
+      const currentTotalCount= getTotalCount(newItems);
+      const currentTotalPrice = getTotalPrice(newItems, currentTotalCount);
+
+      return {
+        ...state,
+        items: newItems,
+        totalPrice: currentTotalPrice,
+        totalCount: currentTotalCount,
+      };
+    }
 
     // case CartActionTypes.PLUS_CART_ITEM: {
     //   const newObjItems = [
