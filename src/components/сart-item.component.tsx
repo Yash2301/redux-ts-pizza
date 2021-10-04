@@ -11,7 +11,7 @@ interface ICartItem extends
 {
   onRemove: () => void,
   onMinus: (id: number) => void,
-  onPlus: (id: number) => void
+  onPlus: () => void
 }
 
 
@@ -21,14 +21,6 @@ const CartItem = (props: ICartItem) => {
     totalPrice, totalCount,
     onRemove, onMinus, onPlus
   } = props;
-
-  // const handleRemoveClick = () => {
-  //   onRemove(id);
-  // };
-
-  const handlePlusItem = () => {
-    onPlus(id);
-  };
 
   const handleMinusItem = () => {
     onMinus(id);
@@ -44,9 +36,9 @@ const CartItem = (props: ICartItem) => {
         />
       </div>
       <div className="cart__item-info">
-        <h3>{name}</h3>
+        <h3>{ name }</h3>
         <p>
-          {type} тесто, {size} см.
+          { type } тесто, { size } см.
         </p>
       </div>
       <div className="cart__item-count">
@@ -69,9 +61,9 @@ const CartItem = (props: ICartItem) => {
             />
           </svg>
         </div>
-        <b>{totalCount}</b>
+        <b>{ totalCount }</b>
         <div
-          onClick={handlePlusItem}
+          onClick={ onPlus }
           className="button button--outline button--circle cart__item-count-plus">
           <svg
             width="10"
@@ -91,7 +83,7 @@ const CartItem = (props: ICartItem) => {
         </div>
       </div>
       <div className="cart__item-price">
-        <b>{totalPrice} ₽</b>
+        <b>{ totalPrice } ₽</b>
       </div>
       <div className="cart__item-remove">
         <Button onClick={ onRemove } className="button--circle" outline>

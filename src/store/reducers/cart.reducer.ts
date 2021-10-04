@@ -84,29 +84,25 @@ const cartReducer = (state = initialState, action: CartAction): ICartState => {
       };
     }
 
-    // case CartActionTypes.PLUS_CART_ITEM: {
-    //   const newObjItems = [
-    //     ...state.items[ action.payload ].items,
-    //     state.items[ action.payload ].items[0],
-    //   ];
-    //   const newItems = {
-    //     ...state.items,
-    //     [ action.payload ]: {
-    //       items: newObjItems,
-    //       totalPrice: getTotalPrice(newObjItems),
-    //     },
-    //   };
-    //
-    //   const totalCount = getTotalSum(newItems, 'items.length');
-    //   const totalPrice = getTotalSum(newItems, 'totalPrice');
-    //
-    //   return {
-    //     ...state,
-    //     items: newItems,
-    //     totalCount,
-    //     totalPrice,
-    //   };
-    // }
+    case CartActionTypes.PLUS_CART_ITEM: {
+      const indexInItem = action.payload;
+
+      const newItems = [
+        ...state.items.slice(0, indexInItem),
+        { ...state.items[ indexInItem ], countItem: state.items[ indexInItem ].countItem + 1 },
+        ...state.items.slice(indexInItem + 1)
+      ];
+
+      const currentTotalCount= getTotalCount(newItems);
+      const currentTotalPrice = getTotalPrice(newItems, currentTotalCount);
+
+      return {
+        ...state,
+        items: newItems,
+        totalPrice: currentTotalPrice,
+        totalCount: currentTotalCount,
+      };
+    }
 
     // case CartActionTypes.MINUS_CART_ITEM: {
     //   const oldItems = state.items[ action.payload ].items;

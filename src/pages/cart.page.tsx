@@ -29,8 +29,8 @@ function Cart() {
     }
   };
 
-  const onPlusItem = (id: number) => {
-    dispatch(plusCartItem(id));
+  const onPlusItem = (index: number) => {
+    dispatch(plusCartItem(index));
   };
 
   const onMinusItem = (id: number) => {
@@ -137,7 +137,7 @@ function Cart() {
                     totalCount={ obj.countItem }
                     onRemove={ () => onRemoveItem(index) }
                     onMinus={ onMinusItem }
-                    onPlus={ onPlusItem }
+                    onPlus={ () => onPlusItem(index) }
                   />
                 ))
               }

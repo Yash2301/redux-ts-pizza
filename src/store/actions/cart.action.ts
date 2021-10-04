@@ -16,9 +16,9 @@ export const removeCartItem = (index: number): CartAction => ({
   payload: index,
 });
 
-export const plusCartItem = (id: number): CartAction => ({
+export const plusCartItem = (index: number): CartAction => ({
   type: CartActionTypes.PLUS_CART_ITEM,
-  payload: id,
+  payload: index,
 });
 
 export const minusCartItem = (id: number): CartAction => ({
