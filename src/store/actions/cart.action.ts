@@ -1,4 +1,4 @@
-import { CartAction, CartActionTypes, ICartItem } from "../../types/cart.type";
+import { CartAction, CartActionTypes } from "../../types/cart.type";
 import { IPizzasBlockNewObject } from "../../types/pizzas.type";
 
 

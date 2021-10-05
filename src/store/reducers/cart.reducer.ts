@@ -1,3 +1,6 @@
+import { isEqualObjects } from "../../utils/equals";
+import { getTotalCount, getTotalPrice } from "../../utils/counters";
+
 import { CartAction, CartActionTypes, ICartItem, ICartState } from "../../types/cart.type";
 
 
@@ -7,36 +10,6 @@ const initialState: ICartState = {
   totalPrice: 0
 };
 
-
-const isEqualObjects = <T extends ICartItem, O extends T>(object1: T, object2: O, keyException: keyof T): boolean => {
-  const props1 = Object.getOwnPropertyNames(object1) as (keyof T)[];
-  const props2 = Object.getOwnPropertyNames(object2) as (keyof O)[];
-
-  if (props1.length !== props2.length) {
-    return false;
-  }
-
-  for (let i = 0; i < props1.length; i += 1) {
-    const propKey: keyof T = props1[ i ];
-
-    if (
-      object1[ propKey ] !== object2[ propKey ]
-      && keyException !== propKey
-    ) {
-      return false;
-    }
-  }
-
-  return true;
-}
-
-const getTotalPrice = (arr: ICartItem[], count: number) => arr.reduce((sum, obj) => sum = (obj.price * count) , 0);
-
-const getTotalCount = (takeObject: ICartItem[]): number => {
-  return takeObject.reduce((sum: number, obj) => {
-    return obj.countItem ? obj.countItem + sum : sum;
-  }, 0);
-};
 
 const carryTotalCountPrice = <T extends Function, O extends Function>(fn1: T, fn2: O) => (items: ICartItem[]) => {
   const totalCount = fn1(items);

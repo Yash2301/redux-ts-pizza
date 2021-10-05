@@ -3,11 +3,11 @@ import { useDispatch, useSelector } from "react-redux";
 
 import { Categories, PizzaBlock, PizzaLoadingBlock, SortPopup } from '../components';
 
-import { fetchPizzas } from "../store/actions/pizzas.action";
+import { fetchPizzas } from "../store/actions-async/fetch-pizzas";
 import { setCategory, setSortBy } from "../store/actions/filters.action";
 import { addPizzaToCart } from "../store/actions/cart.action";
-
 import { RootState } from "../store/reducers";
+
 import { IFiltersSortByState } from "../types/filters.type";
 import { IPizzasBlockNewObject } from "../types/pizzas.type";
 
@@ -36,20 +36,20 @@ const Home = () => {
 
   useEffect(() => {
     dispatch(fetchPizzas(sortBy, category));
-  }, [category, sortBy]);
+  }, [ category, sortBy, dispatch ]);
 
 
   const onSelectCategory = useCallback((index: number | null) => {
     dispatch(setCategory(index));
-  }, []);
+  }, [ dispatch ]);
 
   const onSelectSortType = useCallback((type: IFiltersSortByState) => {
     dispatch(setSortBy(type));
-  }, []);
+  }, [ dispatch ]);
 
   const handleAddPizzaToCart = useCallback((newObj: IPizzasBlockNewObject) => {
     dispatch(addPizzaToCart(newObj));
-  }, []);
+  }, [ dispatch ]);
 
   const countPizzaOnId = (id: number) => cartItems.reduce((sum, item) => {
     return (item.id === id)

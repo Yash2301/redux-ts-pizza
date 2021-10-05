@@ -595,7 +595,7 @@ body {
       order: 1; }
       .cart__item-img img {
         width: 60%;
-        height: 60%; }
+        height: auto; }
     .cart__item-info {
       width: 100%;
       order: 2; }

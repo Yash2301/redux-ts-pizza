@@ -1,15 +1,15 @@
-import React from 'react';
+import React, { useCallback } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { CartItem, Button } from '../components';
+import { CartItem, Button, CartEmpty } from '../components';
 
 import { clearCart, removeCartItem, plusCartItem, minusCartItem } from '../store/actions/cart.action';
 
-import cartEmptyImage from '../assets/img/empty-cart.png';
 import { RootState } from "../store/reducers";
 
-import { ICartItem } from "../types/cart.type";
+import { generateKey } from "../utils/key-generator";
+import { countPriceItem } from "../utils/counters";
 
 
 function Cart() {
@@ -17,45 +17,37 @@ function Cart() {
   const { totalPrice, totalCount, items } = useSelector(({ cart }: RootState) => cart);
 
 
-  const handleClearCart = () => {
+  const handleClearCart = useCallback(() => {
     if (window.confirm('Вы действительно хотите очистить корзину?')) {
       dispatch(clearCart());
     }
-  };
+  }, [ dispatch ]);
 
-  const handleRemoveItem = (index: number) => {
+  const handleRemoveItem = useCallback((index: number) => {
     if (window.confirm('Вы действительно хотите удалить?')) {
       dispatch(removeCartItem(index));
     }
-  };
+  }, [ dispatch ]);
 
-  const handlePlusItem = (index: number) => {
+  const handlePlusItem = useCallback((index: number) => {
     dispatch(plusCartItem(index));
-  };
+  }, [ dispatch ]);
 
-  const handleMinusItem = (index: number) => {
+  const handleMinusItem = useCallback((index: number) => {
     dispatch(minusCartItem(index));
-  };
+  }, [ dispatch ]);
 
   const handleClickOrder = () => {
     console.log('ВАШ ЗАКАЗ', items);
   };
 
-  const _countPriceItem = (obj: ICartItem) => obj.countItem * obj.price;
-
-  const _generateKey = (pre: any) => {
-    if (typeof pre === 'object' && pre !== null) {
-      pre = JSON.stringify(pre);
-    }
-
-    return `${ pre }_${ new Date().getTime() }`;
-  }
-
   return (
     <div className="content">
       <div className="container container--cart">
-        {totalCount ? (
-          <div className="cart">
+        {
+          totalCount
+          ? (
+            <div className="cart">
             <div className="cart__top">
               <h2 className="content__title">
                 <svg
@@ -130,14 +122,14 @@ function Cart() {
             </div>
             <div className="content__items">
               {
-                items.map((obj, index) => (
+                items.map((cartItemObj, index) => (
                   <CartItem
-                    key={ _generateKey(obj) }
-                    name={ obj.name }
-                    type={ obj.type }
-                    size={ obj.size }
-                    totalPrice={ _countPriceItem(obj) }
-                    totalCount={ obj.countItem }
+                    key={ generateKey(cartItemObj) }
+                    name={ cartItemObj.name }
+                    type={ cartItemObj.type }
+                    size={ cartItemObj.size }
+                    totalPrice={ countPriceItem(cartItemObj) }
+                    totalCount={ cartItemObj.countItem }
                     onRemove={ () => handleRemoveItem(index) }
                     onMinus={ () => handleMinusItem(index) }
                     onPlus={ () => handlePlusItem(index) }
@@ -178,22 +170,9 @@ function Cart() {
               </div>
             </div>
           </div>
-        ) : (
-          <div className="cart cart--empty">
-            <h2>
-              Корзина пустая <i>😕</i>
-            </h2>
-            <p>
-              Вероятней всего, вы не заказывали ещё пиццу.
-              <br />
-              Для того, чтобы заказать пиццу, перейди на главную страницу.
-            </p>
-            <img src={cartEmptyImage} alt="Empty cart" />
-            <Link to="/" className="button button--black">
-              <span>Вернуться назад</span>
-            </Link>
-          </div>
-        )}
+          )
+          : <CartEmpty />
+        }
       </div>
     </div>
   );
