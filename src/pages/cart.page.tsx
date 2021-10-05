@@ -17,33 +17,33 @@ function Cart() {
   const { totalPrice, totalCount, items } = useSelector(({ cart }: RootState) => cart);
 
 
-  const onClearCart = () => {
+  const handleClearCart = () => {
     if (window.confirm('Вы действительно хотите очистить корзину?')) {
       dispatch(clearCart());
     }
   };
 
-  const onRemoveItem = (index: number) => {
+  const handleRemoveItem = (index: number) => {
     if (window.confirm('Вы действительно хотите удалить?')) {
       dispatch(removeCartItem(index));
     }
   };
 
-  const onPlusItem = (index: number) => {
+  const handlePlusItem = (index: number) => {
     dispatch(plusCartItem(index));
   };
 
-  const onMinusItem = (index: number) => {
+  const handleMinusItem = (index: number) => {
     dispatch(minusCartItem(index));
   };
 
-  const onClickOrder = () => {
+  const handleClickOrder = () => {
     console.log('ВАШ ЗАКАЗ', items);
   };
 
-  const countPriceItem = (obj: ICartItem) => obj.countItem * obj.price;
+  const _countPriceItem = (obj: ICartItem) => obj.countItem * obj.price;
 
-  const generateKey = (pre: any) => {
+  const _generateKey = (pre: any) => {
     if (typeof pre === 'object' && pre !== null) {
       pre = JSON.stringify(pre);
     }
@@ -125,22 +125,22 @@ function Cart() {
                   />
                 </svg>
 
-                <span onClick={onClearCart}>Очистить корзину</span>
+                <span onClick={ handleClearCart }>Очистить корзину</span>
               </div>
             </div>
             <div className="content__items">
               {
                 items.map((obj, index) => (
                   <CartItem
-                    key={ generateKey(obj) }
+                    key={ _generateKey(obj) }
                     name={ obj.name }
                     type={ obj.type }
                     size={ obj.size }
-                    totalPrice={ countPriceItem(obj) }
+                    totalPrice={ _countPriceItem(obj) }
                     totalCount={ obj.countItem }
-                    onRemove={ () => onRemoveItem(index) }
-                    onMinus={ () => onMinusItem(index) }
-                    onPlus={ () => onPlusItem(index) }
+                    onRemove={ () => handleRemoveItem(index) }
+                    onMinus={ () => handleMinusItem(index) }
+                    onPlus={ () => handlePlusItem(index) }
                   />
                 ))
               }
@@ -172,7 +172,7 @@ function Cart() {
                   </svg>
                   <span>Вернуться назад</span>
                 </Link>
-                <Button onClick={ onClickOrder } className="pay-btn">
+                <Button onClick={ handleClickOrder } className="pay-btn">
                   <span>Оплатить сейчас</span>
                 </Button>
               </div>

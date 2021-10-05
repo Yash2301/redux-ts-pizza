@@ -3,8 +3,8 @@ import { CartAction, CartActionTypes, ICartItem, ICartState } from "../../types/
 
 const initialState: ICartState = {
   items: [],
-  totalPrice: 0,
   totalCount: 0,
+  totalPrice: 0
 };
 
 
@@ -38,6 +38,15 @@ const getTotalCount = (takeObject: ICartItem[]): number => {
   }, 0);
 };
 
+const carryTotalCountPrice = <T extends Function, O extends Function>(fn1: T, fn2: O) => (items: ICartItem[]) => {
+  const totalCount = fn1(items);
+  const totalPrice = fn2(items, totalCount)
+
+  return { totalCount, totalPrice }
+}
+
+const carryCountPrice = carryTotalCountPrice(getTotalCount, getTotalPrice);
+
 
 const cartReducer = (state = initialState, action: CartAction): ICartState => {
   switch (action.type) {
@@ -55,14 +64,10 @@ const cartReducer = (state = initialState, action: CartAction): ICartState => {
               : item;
           })
 
-      const totalCount = getTotalCount(currentPizzaItems);
-      const totalPrice = getTotalPrice(currentPizzaItems, totalCount);
-
       return {
         ...state,
         items: currentPizzaItems,
-        totalCount,
-        totalPrice
+        ...carryCountPrice(currentPizzaItems)
       };
     }
 
@@ -73,14 +78,10 @@ const cartReducer = (state = initialState, action: CartAction): ICartState => {
       const indexInItem = action.payload;
       newItems.splice(indexInItem, 1);
 
-      const totalCount = getTotalCount(newItems);
-      const totalPrice = getTotalPrice(newItems, totalCount);
-
       return {
         ...state,
         items: newItems,
-        totalPrice,
-        totalCount
+        ...carryCountPrice(newItems)
       };
     }
 
@@ -93,14 +94,10 @@ const cartReducer = (state = initialState, action: CartAction): ICartState => {
         ...state.items.slice(indexInItem + 1)
       ];
 
-      const totalCount = getTotalCount(newItems);
-      const totalPrice = getTotalPrice(newItems, totalCount);
-
       return {
         ...state,
         items: newItems,
-        totalPrice,
-        totalCount
+        ...carryCountPrice(newItems)
       };
     }
 
@@ -114,14 +111,10 @@ const cartReducer = (state = initialState, action: CartAction): ICartState => {
           ...state.items.slice(indexInItem + 1)
         ];
 
-        const totalCount = getTotalCount(newItems);
-        const totalPrice = getTotalPrice(newItems, totalCount);
-
         return {
           ...state,
           items: newItems,
-          totalPrice,
-          totalCount
+          ...carryCountPrice(newItems)
         };
       }
 
