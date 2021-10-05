@@ -6,3 +6,4 @@ export { default as PizzaBlock } from './pizza-block.component';
 export { default as PizzaLoadingBlock } from './loading-block.component';
 export { default as CartItem } from './сart-item.component';
 export { default as CartEmpty } from './cart-empty.component';
+export { default as ErrorIndicator } from './error-indicator.component';

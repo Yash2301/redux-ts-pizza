@@ -1,7 +1,7 @@
 import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 
-import { Categories, PizzaBlock, PizzaLoadingBlock, SortPopup } from '../components';
+import { Categories, PizzaBlock, PizzaLoadingBlock, SortPopup, ErrorIndicator } from '../components';
 
 import { fetchPizzas } from "../store/actions-async/fetch-pizzas";
 import { setCategory, setSortBy } from "../store/actions/filters.action";
@@ -29,7 +29,7 @@ const sortItems: ISortItems[] = [
 const Home = () => {
   const dispatch = useDispatch();
   const items = useSelector((state: RootState) => state.pizzas.items);
-  const isLoaded = useSelector(({ pizzas }: RootState) => pizzas.isLoaded);
+  const { isLoaded, error } = useSelector(({ pizzas }: RootState) => pizzas);
   const { category, sortBy } = useSelector(({ filters }: RootState) => filters);
   const cartItems = useSelector(({ cart }: RootState) => cart.items);
 
@@ -75,6 +75,7 @@ const Home = () => {
       <h2 className="content__title">Все пиццы</h2>
 
       <div className="content__items">
+        {  }
         { isLoaded
           ? items.map((obj) => (
             <PizzaBlock
@@ -84,7 +85,9 @@ const Home = () => {
               key={ obj.id }
             />
           ))
-          : Array(12).fill(0)
+          : (error.length)
+            ? <ErrorIndicator>{ error }</ErrorIndicator>
+            : Array(12).fill(0)
             .map((_, index) => <PizzaLoadingBlock key={ index } />)
         }
       </div>

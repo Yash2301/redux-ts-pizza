@@ -1,5 +1,5 @@
 <h1 align="center">
-  React Redux TS Pizza <img src="./screenshots/pizza-icon.png" alt="pizza-icon" title="pizza-icon"/>
+  React Redux TS Pizza<img src="./screenshots/pizza-icon.png" alt="pizza-icon" title="pizza-icon" width="45"/>
 </h1>
 
 <p align="center">

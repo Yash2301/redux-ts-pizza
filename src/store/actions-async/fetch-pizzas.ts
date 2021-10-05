@@ -1,7 +1,7 @@
 import axios from "axios";
 import { Dispatch } from "react";
 
-import { setPizzas } from "../actions/pizzas.action";
+import { failLoaded, setPizzas } from "../actions/pizzas.action";
 
 import { IFiltersSortByState } from "../../types/filters.type";
 import { PizzaAction } from "../../types/pizzas.type";
@@ -17,5 +17,5 @@ export const fetchPizzas = (sortBy: IFiltersSortByState, category: null | number
         }&_sort=${ sortBy.type }&_order=${ sortBy.order }`,
       )
       .then(({ data }) => dispatch(setPizzas(data)) )
-      .catch(err => new Error(err))
+      .catch(err => dispatch(failLoaded("Не получилось загрузить данны. Попробуйте позже")))
   }

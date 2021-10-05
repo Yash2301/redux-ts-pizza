@@ -22,11 +22,13 @@ export interface IPizzasBlockNewObject {
 export interface IPizzasState {
     items: IPizzasJson[],
     isLoaded: boolean,
+    error: string
 }
 
 export enum PizzaActionTypes {
     SET_PIZZAS = 'SET_PIZZAS',
     SET_LOADED = 'SET_LOADED',
+    FAILURE_LOADED = 'FAILURE_LOADED',
 }
 
 interface IPizzaSetAction {
@@ -39,6 +41,12 @@ interface IPizzaLoadedAction {
     payload: boolean
 }
 
+interface IPizzaFailureLoadedAction {
+    type: PizzaActionTypes.FAILURE_LOADED;
+    payload: string
+}
+
 
 export type PizzaAction = IPizzaSetAction
   | IPizzaLoadedAction
+  | IPizzaFailureLoadedAction
