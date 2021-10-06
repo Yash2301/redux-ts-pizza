@@ -8,7 +8,7 @@ import cartReducer from "./cart.reducer";
 
 
 const persistConfig = {
-	key: 'root',
+	key: 'react-pizza',
 	storage,
 	whitelist: [ 'cart' ]
 };
@@ -19,8 +19,7 @@ const rootReducer = combineReducers({
 	cart: cartReducer
 });
 
+
 export default persistReducer(persistConfig, rootReducer);
-
-
 
 export type RootState = ReturnType<typeof rootReducer>

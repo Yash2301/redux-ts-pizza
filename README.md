@@ -1,5 +1,5 @@
 <h1 align="center">
-  React Redux TS Pizza
+  React Redux TS Pizza <img src="./screenshots/pizza-icon.png" alt="pizza-icon" title="pizza-icon"/>
 </h1>
 
 <p align="center">
@@ -39,7 +39,7 @@ All data from the pizza cart will be stored in localStorage.
 - [redux-devtools-extension](https://github.com/zalmoxisus/redux-devtools-extension) tracking changes through the browser console in Redux store
 - [redux-thunk](https://github.com/reduxjs/redux-thunk) async middleware for Redux store.
 - [react-content-loader](https://github.com/danilowoz/react-content-loader) component for easily create placeholder loadings [Loader template creator](https://skeletonreact.com/)
-* [redux-persist](https://github.com/rt2zz/redux-persist) - Persist and rehydrate a Redux store. Saves data locally to the browser store
+- [redux-persist](https://github.com/rt2zz/redux-persist) save data from redux store to localStorage
 
 ![main-page](./screenshots/main-page.jpg)
 ![cart-with-orders](./screenshots/cart-with-order.jpg)
