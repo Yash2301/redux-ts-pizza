@@ -17,8 +17,11 @@
     </a>
 </p>
 
+## Order pizza in our educational online store.
 
 Link on [figma page](https://www.figma.com/file/wWUnQwvRDWBfPx1v1pCAfO/React-Pizza?node-id=0%3A1) design
+
+Educational project. Shop for ordering pizza. There is a sorting by category and a method of making pizza.
 
 
 ## Technologies
