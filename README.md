@@ -25,6 +25,7 @@ Educational project. Shop for ordering pizza. There is a sorting by category and
 
 I found a [YouTube video course](https://www.youtube.com/playlist?list=PL0FGkDGJQjJFMRmP7wZ771m1Nx-m2_qXq) in which the author did not complete his project, so I decided to finish it. I implemented the idea of the author of the course and posted it on my GitHub page as a sample for those who want to see a version of a fully working application
 
+All data from the pizza cart will be stored in localStorage.
 
 ## Technologies
 
@@ -38,7 +39,7 @@ I found a [YouTube video course](https://www.youtube.com/playlist?list=PL0FGkDGJ
 - [redux-devtools-extension](https://github.com/zalmoxisus/redux-devtools-extension) tracking changes through the browser console in Redux store
 - [redux-thunk](https://github.com/reduxjs/redux-thunk) async middleware for Redux store.
 - [react-content-loader](https://github.com/danilowoz/react-content-loader) component for easily create placeholder loadings [Loader template creator](https://skeletonreact.com/)
-
+* [redux-persist](https://github.com/rt2zz/redux-persist) - Persist and rehydrate a Redux store. Saves data locally to the browser store
 
 ![main-page](./screenshots/main-page.jpg)
 ![cart-with-orders](./screenshots/cart-with-order.jpg)
