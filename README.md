@@ -25,7 +25,8 @@ Educational project. Shop for ordering pizza. There is a sorting by category and
 
 I found a [YouTube video course](https://www.youtube.com/playlist?list=PL0FGkDGJQjJFMRmP7wZ771m1Nx-m2_qXq) in which the author did not complete his project, so I decided to finish it. I implemented the idea of the author of the course and posted it on my GitHub page as a sample for those who want to see a version of a fully working application
 
-All data from the pizza cart will be stored in localStorage.
+All data from the pizza cart will be stored in localStorage. Added error handling, the user will see an error message.
+
 
 ## Technologies
 
@@ -40,7 +41,11 @@ All data from the pizza cart will be stored in localStorage.
 - [redux-thunk](https://github.com/reduxjs/redux-thunk) async middleware for Redux store.
 - [react-content-loader](https://github.com/danilowoz/react-content-loader) component for easily create placeholder loadings [Loader template creator](https://skeletonreact.com/)
 - [redux-persist](https://github.com/rt2zz/redux-persist) save data from redux store to localStorage
+- [react-error-boundary](https://github.com/bvaughn/react-error-boundary) catches errors in the wrapped component
+- load picture for error message from [error-picture](https://icons8.ru/illustrations/web-elements/404-error) 
+
 
 ![main-page](./screenshots/main-page.jpg)
 ![cart-with-orders](./screenshots/cart-with-order.jpg)
 ![cart-empty](./screenshots/cart-empty.jpg)
+![error-page](./screenshots/error-page.jpg)

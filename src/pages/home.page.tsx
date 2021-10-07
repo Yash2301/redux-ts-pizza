@@ -1,7 +1,8 @@
 import React, { useCallback, useEffect } from 'react';
 import { useDispatch, useSelector } from "react-redux";
 
-import { Categories, PizzaBlock, PizzaLoadingBlock, SortPopup, ErrorIndicator } from '../components';
+import { Categories, PizzaBlock, PizzaLoadingBlock, SortPopup } from '../components';
+import { ErrorIndicator } from "../components/error-indicator.component";
 
 import { fetchPizzas } from "../store/actions-async/fetch-pizzas";
 import { setCategory, setSortBy } from "../store/actions/filters.action";
@@ -57,6 +58,9 @@ const Home = () => {
       : sum;
   }, 0)
 
+  // @ts-ignore
+  // const foo = bar;
+
   return (
     <div className="container">
       <div className="content__top">
@@ -74,23 +78,23 @@ const Home = () => {
       </div>
       <h2 className="content__title">Все пиццы</h2>
 
-      <div className="content__items">
-        {  }
-        { isLoaded
-          ? items.map((obj) => (
-            <PizzaBlock
-              onClickAddPizza={ handleAddPizzaToCart }
-              addedCount={ countPizzaOnId(obj.id) }
-              { ...obj }
-              key={ obj.id }
-            />
-          ))
-          : (error.length)
-            ? <ErrorIndicator>{ error }</ErrorIndicator>
+      { (error.length)
+        ? <ErrorIndicator>{ error }</ErrorIndicator>
+        : <div className="content__items">
+          { isLoaded
+            ? items.map((obj) => (
+              <PizzaBlock
+                onClickAddPizza={ handleAddPizzaToCart }
+                addedCount={ countPizzaOnId(obj.id) }
+                { ...obj }
+                key={ obj.id }
+              />
+            ))
             : Array(12).fill(0)
-            .map((_, index) => <PizzaLoadingBlock key={ index } />)
-        }
-      </div>
+              .map((_, index) => <PizzaLoadingBlock key={ index }/>)
+          }
+        </div>
+      }
     </div>
   )
 }

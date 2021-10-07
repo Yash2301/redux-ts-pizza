@@ -17,5 +17,5 @@ export const fetchPizzas = (sortBy: IFiltersSortByState, category: null | number
         }&_sort=${ sortBy.type }&_order=${ sortBy.order }`,
       )
       .then(({ data }) => dispatch(setPizzas(data)) )
-      .catch(err => dispatch(failLoaded("Не получилось загрузить данны. Попробуйте позже")))
+      .catch(err => dispatch(failLoaded("Не получилось загрузить данные. Попробуйте позже")))
   }
