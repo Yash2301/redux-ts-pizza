@@ -1,8 +1,9 @@
-import React, { useCallback } from 'react';
+import React, { useCallback, useState } from 'react';
 import { useSelector, useDispatch } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-import { CartItem, Button, CartEmpty } from '../components';
+import { CartItem, Button, CartEmpty, FormOrderPopup } from '../components';
+import useComponentVisible from "../hooks/useComponentVisible";
 
 import { clearCart, removeCartItem, plusCartItem, minusCartItem } from '../store/actions/cart.action';
 
@@ -12,9 +13,11 @@ import { generateKey } from "../utils/key-generator";
 import { countPriceItem } from "../utils/counters";
 
 
+
 function Cart() {
   const dispatch = useDispatch();
   const { totalPrice, totalCount, items } = useSelector(({ cart }: RootState) => cart);
+  const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(false);
 
 
   const handleClearCart = useCallback(() => {
@@ -37,12 +40,25 @@ function Cart() {
     dispatch(minusCartItem(index));
   }, [ dispatch ]);
 
-  const handleClickOrder = () => {
-    console.log('ВАШ ЗАКАЗ', items);
+  const toggleVisiblePopup = () => setIsComponentVisible(!isComponentVisible);
+
+  const setPhoneOrder = (phone: string) => {
+    console.log(JSON.stringify({ items: items, phone: phone }, null, 4))
+    toggleVisiblePopup();
+
+    dispatch(clearCart());
   };
+
 
   return (
     <div className="content">
+      <FormOrderPopup
+        myRef={ ref }
+        isVisibleForm={ isComponentVisible }
+        onVisibleForm={ toggleVisiblePopup }
+        setPhoneOrder={ setPhoneOrder }
+      />
+
       <div className="container container--cart">
         {
           totalCount
@@ -164,7 +180,7 @@ function Cart() {
                   </svg>
                   <span>Вернуться назад</span>
                 </Link>
-                <Button onClick={ handleClickOrder } className="pay-btn">
+                <Button onClick={ toggleVisiblePopup } className="pay-btn">
                   <span>Оплатить сейчас</span>
                 </Button>
               </div>

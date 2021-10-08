@@ -58,6 +58,7 @@ const Home = () => {
       : sum;
   }, 0)
 
+  // create error for test
   // @ts-ignore
   // const foo = bar;
 
