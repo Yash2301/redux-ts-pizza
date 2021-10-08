@@ -90,6 +90,7 @@ a {
 .button {
   display: flex;
   align-items: center;
+  justify-content: center;
   background-color: #fe5f1e;
   border-radius: 30px;
   padding: 10px 20px;

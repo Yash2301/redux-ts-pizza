@@ -21,6 +21,8 @@
 
 Link on [figma page](https://www.figma.com/file/wWUnQwvRDWBfPx1v1pCAfO/React-Pizza?node-id=0%3A1) design
 
+🍕[Live page](https://react-pizza-ts.herokuapp.com/)
+
 Educational project. Shop for ordering pizza. There is a sorting by category and a method of making pizza.
 
 I found a [YouTube video course](https://www.youtube.com/playlist?list=PL0FGkDGJQjJFMRmP7wZ771m1Nx-m2_qXq) in which the author did not complete his project, so I decided to finish it. I implemented the idea of the author of the course and posted it on my GitHub page as a sample for those who want to see a version of a fully working application
