@@ -51,3 +51,4 @@ All data from the pizza cart will be stored in localStorage. Added error handlin
 ![cart-with-orders](./screenshots/cart-with-order.jpg)
 ![cart-empty](./screenshots/cart-empty.jpg)
 ![error-page](./screenshots/error-page.jpg)
+![404-page](./screenshots/404-page.jpg)
