@@ -30,6 +30,24 @@ I found a [YouTube video course](https://www.youtube.com/playlist?list=PL0FGkDGJ
 All data from the pizza cart will be stored in localStorage. Added error handling, the user will see an error message.
 
 
+## Installation and Running
+
+```sh
+git clone git@github.com:Bukovski/redux-ts-pizza.git
+cd redux-ts-pizza
+npm install
+npm run server
+npm run start
+```
+
+
+## Routes
+
+- `/` store page
+- `/cart` pizza cart
+- `404` page not found
+ 
+
 ## Technologies
 
 - [typescript-with-react](https://react-typescript-cheatsheet.netlify.app/docs/basic/setup) for static typing TypeScript, allow you to catch most of the errors before the code is executed. In addition, they significantly improve development processes by adding auto-completion and other features.
