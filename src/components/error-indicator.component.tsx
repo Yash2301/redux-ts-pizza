@@ -19,7 +19,7 @@ const ErrorIndicator = (props: IErrorIndicator) => {
   return(
     <div className="error">
       <h3 className="error--header">Возникла ошибка</h3>
-      <img className="error--image" title="error image" alt="error image" src={ errorImage } />
+      <img className="error--image" title="error" alt="error-alert" src={ errorImage } />
       <p className="error--message">
         { children }
       </p>

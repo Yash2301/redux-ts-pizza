@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 
 import { Button } from "./index";
-import useComponentVisible from "../hooks/useComponentVisible";
 
 
 const normalizeInput = (value: string, previousValue: string): string => {
