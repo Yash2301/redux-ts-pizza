@@ -3,8 +3,8 @@ import React, { useState } from "react";
 import { Button } from "./index";
 
 
-const normalizeInput = (value: string, previousValue: string): string => {
-  if (!value) return value;
+export const normalizeInput = (value: string, previousValue: string): string => {
+  if (!value || typeof value !== 'string') return value;
 
   const currentValue = value.replace(/[^\d]/g, '');
   const cvLength = currentValue.length;
@@ -74,7 +74,7 @@ const FormOrderPopup = React.memo((props: IFormOrderPopup) => {
       ref={ myRef }
       className={ "form-order " + ((isVisibleForm) ? "" : "form-order__hide") }
     >
-      <span className="form-order--close" onClick={ () => onVisibleForm() }>×</span>
+      <span data-testid="close-window-button" className="form-order--close" onClick={ () => onVisibleForm() }>×</span>
       <form className="form-order--form" onSubmit={ handleSubmit }>
           <p className="form-order--label">Для заказа: введите свой телефон и мы вам перезвоним</p>
           <input
@@ -85,7 +85,7 @@ const FormOrderPopup = React.memo((props: IFormOrderPopup) => {
             value={ phone }
             onChange={ handleChange }
           />
-          { error && <p className="form-order--error">{ error }</p> }
+          { error && <p data-testid="error-message-window" className="form-order--error">{ error }</p> }
 
         <div className="form-order--btn-container">
           <Button onClick={ handleReset }>Сбросить</Button>
