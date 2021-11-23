@@ -81,6 +81,8 @@ const FormOrderPopup = React.memo((props: IFormOrderPopup) => {
             className="form-order--input"
             type="text"
             name="phone"
+            min={ 10 }
+            max={ 10 }
             placeholder="(xxx) xxx-xxxx"
             value={ phone }
             onChange={ handleChange }
