@@ -78,6 +78,7 @@
       "!<rootDir>/node_modules/",
       "!<rootDir>/src/index.tsx",
       "!<rootDir>/src/components/index.tsx",
+      "!<rootDir>/src/components/loading-block.component.tsx",
       "!<rootDir>/src/types/*.{ts,tsx}"
     ],
     "coverageThreshold": {
