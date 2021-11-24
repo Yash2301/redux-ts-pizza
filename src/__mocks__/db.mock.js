@@ -104,3 +104,63 @@ export const mockPizza = {
 };
 
 
+export const mockCart = {
+	totalPrice: 5800,
+	totalCount: 10,
+	items: [
+		{
+			id: 2,
+			name: 'Цыпленок барбекю',
+			imageUrl: 'https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/6652fec1-04df-49d8-8744-232f1032c44b.jpg',
+			price: 295,
+			size: 26,
+			type: 'тонкое',
+			countItem: 1
+		},
+		{
+			id: 1,
+			name: 'Сырная',
+			imageUrl: 'https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/2ffc31bb-132c-4c99-b894-53f7107a1441.jpg',
+			price: 245,
+			size: 26,
+			type: 'тонкое',
+			countItem: 1
+		},
+		{
+			id: 0,
+			name: 'Пепперони Фреш с перцем',
+			imageUrl: 'https://dodopizza.azureedge.net/static/Img/Products/f035c7f46c0844069722f2bb3ee9f113_584x584.jpeg',
+			price: 803,
+			size: 26,
+			type: 'тонкое',
+			countItem: 2
+		},
+		{
+			id: 6,
+			name: 'Пепперони',
+			imageUrl: 'https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/d2e337e9-e07a-4199-9cc1-501cc44cb8f8.jpg',
+			price: 675,
+			size: 26,
+			type: 'тонкое',
+			countItem: 1
+		},
+		{
+			id: 5,
+			name: 'Крэйзи пепперони',
+			imageUrl: 'https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/1e1a6e80-b3ba-4a44-b6b9-beae5b1fbf27.jpg',
+			price: 580,
+			size: 26,
+			type: 'тонкое',
+			countItem: 3
+		},
+		{
+			id: 5,
+			name: 'Крэйзи пепперони',
+			imageUrl: 'https://dodopizza.azureedge.net/static/Img/Products/Pizza/ru-RU/1e1a6e80-b3ba-4a44-b6b9-beae5b1fbf27.jpg',
+			price: 580,
+			size: 40,
+			type: 'тонкое',
+			countItem: 2
+		}
+	]
+}
