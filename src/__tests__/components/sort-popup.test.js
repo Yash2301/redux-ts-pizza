@@ -1,4 +1,4 @@
-import { render, screen } from "@testing-library/react";
+import { act, render, screen } from "@testing-library/react";
 import SortPopup from "../../components/sort-popup.component";
 import { sortItems } from "../../pages/home.page";
 import userEvent from "@testing-library/user-event";
@@ -29,6 +29,14 @@ describe("SortPopup Component", () => {
 		userEvent.click(screen.getByText("популярности"));
 		expect(screen.queryByTestId("sort-popup")).not.toBeInTheDocument();
 		expect(mockClickSortType).toBeCalledTimes(1);
+		
+		userEvent.click(screen.getByTestId("sort-visible"));
+		expect(screen.queryByTestId("sort-popup")).toBeInTheDocument();
+		
+		act(() => {
+			userEvent.click(document.body);
+		});
+		expect(screen.queryByTestId("sort-popup")).not.toBeInTheDocument();
 	})
 	
 	it("render without onClickSortType open sort popup & select one", () => {
