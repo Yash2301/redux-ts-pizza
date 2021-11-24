@@ -20,6 +20,8 @@ exports[`FormOrderPopup Component FormOrderPopup form not visible 1`] = `
     </p>
     <input
       class="form-order--input"
+      max="10"
+      min="10"
       name="phone"
       placeholder="(xxx) xxx-xxxx"
       type="text"

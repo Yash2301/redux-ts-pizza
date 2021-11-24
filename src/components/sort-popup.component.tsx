@@ -46,11 +46,11 @@ const SortPopup = React.memo((props: ISortPopup) => {
           />
         </svg>
         <b>Сортировка по:</b>
-        <span onClick={ toggleVisiblePopup }>{ activeLabel }</span>
+        <span data-testid="sort-visible" onClick={ toggleVisiblePopup }>{ activeLabel }</span>
       </div>
       { isComponentVisible &&
       (
-        <div className="sort__popup">
+        <div data-testid="sort-popup" className="sort__popup">
           <ul>
             { items &&
             items.map((itemObj, index) => (
