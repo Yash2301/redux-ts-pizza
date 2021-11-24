@@ -47,6 +47,8 @@ describe("Categories Component", () => {
 				: expect(findTextInElement).not.toHaveClass('active')
 		})
 		
+		userEvent.click(screen.getByText(categoryNames[ 0 ]));
+		
 		expect(container.firstChild).toMatchSnapshot();
 	})
 	
