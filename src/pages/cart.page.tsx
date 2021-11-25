@@ -143,6 +143,7 @@ function Cart() {
                 items.map((cartItemObj, index) => (
                   <CartItem
                     key={ generateKey(cartItemObj) }
+                    cartIndex={ index }
                     name={ cartItemObj.name }
                     type={ cartItemObj.type }
                     size={ cartItemObj.size }

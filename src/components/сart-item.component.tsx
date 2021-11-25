@@ -9,6 +9,7 @@ interface ICartItem extends
   Omit<IPizzasBlockNewObject, "id" | "imageUrl" | "price">,
   Omit<ICartState, "items">
 {
+  cartIndex: number,
   onRemove: () => void,
   onMinus: () => void,
   onPlus: () => void
@@ -19,11 +20,12 @@ const CartItem = (props: ICartItem) => {
   const {
     name, type, size,
     totalPrice, totalCount,
-    onRemove, onMinus, onPlus
+    onRemove, onMinus, onPlus,
+    cartIndex = 0
   } = props;
 
   return (
-    <div className="cart__item">
+    <div data-testid={ `cart-item-${ cartIndex }` } className="cart__item">
       <div className="cart__item-img">
         <img
           className="pizza-block__image"

@@ -15,8 +15,6 @@ describe("CartItem Component", () => {
 		expect(screen.getByText("Пепперони Фреш с перцем")).toBeInTheDocument();
 		expect(screen.getByText(/тонкое тесто/)).toBeInTheDocument();
 		expect(screen.getByText("1606 ₽")).toBeInTheDocument();
-		
-		expect(container.firstChild).toMatchSnapshot()
 	})
 });
 
