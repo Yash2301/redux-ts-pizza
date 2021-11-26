@@ -5,7 +5,7 @@ import Cart from "../../pages/cart.page";
 import userEvent from "@testing-library/user-event";
 
 
-describe("Cart Component", () => {
+describe("Cart Page", () => {
 	it("should render with default props", () => {
 		renderWithRouterRedux(<Cart />);
 		
