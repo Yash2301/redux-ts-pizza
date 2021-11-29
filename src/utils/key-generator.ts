@@ -1,4 +1,6 @@
 export const generateKey = (pre: any) => {
+  pre = pre || "";
+
   if (typeof pre === 'object' && pre !== null) {
     pre = JSON.stringify(pre);
   }
