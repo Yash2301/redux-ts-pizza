@@ -47,7 +47,6 @@ describe("fetchPizzas Action", () => {
 			"/db/pizzas?category=1&_sort=name&_order=asc"
 		)
 		
-		console.log(request)
 		expect(request.type).toBe("SET_PIZZAS");
 		expect(request.payload).toHaveLength(3);
 		expect(request.payload).toMatchObject([

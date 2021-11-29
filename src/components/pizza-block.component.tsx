@@ -36,7 +36,7 @@ const PizzaBlock = (props: IPizzasJson & IPizzasBlock) => {
   };
 
   return (
-    <section className="pizza-block">
+    <section data-testid="pizza-block" className="pizza-block">
       <img className="pizza-block__image" src={ imageUrl } alt="Pizza" />
       <h4 className="pizza-block__title">{ name }</h4>
       <div className="pizza-block__selector">

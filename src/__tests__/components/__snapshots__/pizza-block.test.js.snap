@@ -3,6 +3,7 @@
 exports[`PizzaBlock Component should render with defaultProps 1`] = `
 <section
   class="pizza-block"
+  data-testid="pizza-block"
 >
   <img
     alt="Pizza"

@@ -80,6 +80,8 @@
       "!<rootDir>/src/pages/index.ts",
       "!<rootDir>/src/components/index.tsx",
       "!<rootDir>/src/components/loading-block.component.tsx",
+      "!<rootDir>/src/test-utils.js",
+      "!<rootDir>/src/App.tsx",
       "!<rootDir>/src/types/*.{ts,tsx}"
     ],
     "coverageThreshold": {

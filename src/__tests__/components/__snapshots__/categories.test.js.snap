@@ -7,31 +7,37 @@ exports[`Categories Component should render with props items & active className 
   <ul>
     <li
       class=""
+      data-testid="categories-item"
     >
       Все
     </li>
     <li
       class=""
+      data-testid="categories-item"
     >
       Мясные
     </li>
     <li
       class=""
+      data-testid="categories-item"
     >
       Вегетарианская
     </li>
     <li
       class="active"
+      data-testid="categories-item"
     >
       Гриль
     </li>
     <li
       class=""
+      data-testid="categories-item"
     >
       Острые
     </li>
     <li
       class=""
+      data-testid="categories-item"
     >
       Закрытые
     </li>

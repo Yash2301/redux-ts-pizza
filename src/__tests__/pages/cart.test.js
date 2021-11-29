@@ -126,8 +126,6 @@ describe("Cart Page", () => {
 			expect(window.confirm).toHaveBeenCalled();
 			
 			expect(screen.getByText('10 шт.').closest('span')).toHaveTextContent("Всего пицц: 10 шт.");
-			// screen.debug(screen.getByText('Всего пицц:'))
-			// screen.debug(screen.getByText('Сумма заказа:'))
 		});
 		
 		it("show popup form", () => {

@@ -36,16 +36,19 @@ exports[`SortPopup Component should render, open sort popup & select one 1`] = `
     <ul>
       <li
         class=""
+        data-testid="sort-popup-item"
       >
         популярности
       </li>
       <li
         class="active"
+        data-testid="sort-popup-item"
       >
         цене
       </li>
       <li
         class=""
+        data-testid="sort-popup-item"
       >
         алфавит
       </li>

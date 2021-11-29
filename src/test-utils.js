@@ -1,7 +1,8 @@
 import { Router } from "react-router-dom";
 import { createMemoryHistory } from "history";
-import { createStore } from 'redux'
+import { applyMiddleware, createStore } from 'redux';
 import { Provider } from 'react-redux'
+import thunk from "redux-thunk";
 import { render } from "@testing-library/react";
 import rootReducer from "./store/reducers";
 
@@ -31,7 +32,11 @@ export const renderWithRedux = (component, { initialState, store = createStore(r
 	}
 }
 
-export const renderWithRouterRedux = (component, { initialState, store = createStore(rootReducer, initialState) } = {}
+export const renderWithRouterRedux = (component, { initialState, store = createStore(
+	                                      rootReducer,
+	                                      initialState,
+	                                      applyMiddleware(thunk),
+                                      ) } = {}
 ) => {
 	const history = createMemoryHistory()
 	
@@ -43,6 +48,7 @@ export const renderWithRouterRedux = (component, { initialState, store = createS
 				</Provider>
 			</Router>
 			, store
-		)
+		),
+		store
 	}
 }
