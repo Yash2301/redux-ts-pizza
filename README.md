@@ -17,6 +17,8 @@
     </a>
 </p>
 
+[![Coverage Status](https://coveralls.io/repos/github/Bukovski/redux-ts-pizza/badge.svg?branch=main)](https://coveralls.io/github/Bukovski/redux-ts-pizza?branch=main)
+
 ## Order pizza in our educational online store.
 
 Link on [figma page](https://www.figma.com/file/wWUnQwvRDWBfPx1v1pCAfO/React-Pizza?node-id=0%3A1) design
@@ -63,7 +65,7 @@ npm run start
 - [redux-persist](https://github.com/rt2zz/redux-persist) save data from redux store to localStorage
 - [react-error-boundary](https://github.com/bvaughn/react-error-boundary) catches errors in the wrapped component
 - load picture for error message from [error-picture](https://icons8.ru/illustrations/web-elements/404-error) 
-
+- [coveralls](https://github.com/nickmerwin/node-coveralls) - coverage reporting of [coveralls.io](https://coveralls.io/) and add a cool coverage button
 
 ![main-page](./screenshots/main-page.jpg)
 ![cart-with-orders](./screenshots/cart-with-order.jpg)
