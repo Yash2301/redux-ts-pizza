@@ -21,6 +21,8 @@
 
 ## Order pizza in our educational online store.
 
+The same project made on `Mobx` can be found at [the link](https://github.com/Bukovski/react-mobx-ts-pizza)
+
 Link on [figma page](https://www.figma.com/file/wWUnQwvRDWBfPx1v1pCAfO/React-Pizza?node-id=0%3A1) design
 
 🍕[Live page](https://react-pizza-ts.herokuapp.com/)
