@@ -50,6 +50,45 @@ npm run start
 - `404` page not found
  
 
+## Tree
+
+```
+|–– public
+|  |–– favicon
+|–– screenshots
+|–– src
+|  |–– assets
+|  |  |–– fonts
+|  |  |  |–– ProximaNova-Black
+|  |  |  |–– ProximaNova-Bold
+|  |  |  |–– ProximaNova-Extrabld
+|  |  |  |–– ProximaNova-Regular
+|  |  |–– img
+|  |  |–– scss
+|  |  |  |–– components
+|  |  |  |–– libs
+|  |  |  |–– _mixins
+|  |–– components
+|  |–– hooks
+|  |–– __mocks__
+|  |–– pages
+|  |–– store
+|  |  |–– actions
+|  |  |–– actions-async
+|  |  |–– reducers
+|  |–– __tests__
+|  |  |–– components
+|  |  |  |–– __snapshots__
+|  |  |–– pages
+|  |  |  |–– __snapshots__
+|  |  |–– store
+|  |  |  |–– actions
+|  |  |–– utils
+|  |–– types
+|  |–– utils
+
+```
+
 ## Technologies
 
 - [typescript-with-react](https://react-typescript-cheatsheet.netlify.app/docs/basic/setup) for static typing TypeScript, allow you to catch most of the errors before the code is executed. In addition, they significantly improve development processes by adding auto-completion and other features.
