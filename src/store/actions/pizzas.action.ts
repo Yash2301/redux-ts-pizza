@@ -11,3 +11,11 @@ export const failLoaded = (error: string): PizzaAction => {
 		payload: error
 	};
 };
+
+export const setLocale = (lang: string): PizzaAction => {
+	return {
+		type: PizzaActionTypes.SET_LOCALE,
+		payload: lang
+	};
+};
+

@@ -7,7 +7,7 @@ import { CartAction, CartActionTypes, ICartItem, ICartState } from "../../types/
 const initialState: ICartState = {
   items: [],
   totalCount: 0,
-  totalPrice: 0
+  totalPrice: 0,
 };
 
 

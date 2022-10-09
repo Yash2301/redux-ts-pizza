@@ -22,6 +22,7 @@ export interface IPizzasBlockNewObject {
 export interface IPizzasState {
     items: IPizzasJson[],
     isLoaded: boolean,
+    locale : string,
     error: string
 }
 
@@ -29,6 +30,7 @@ export enum PizzaActionTypes {
     SET_PIZZAS = 'SET_PIZZAS',
     SET_LOADED = 'SET_LOADED',
     FAILURE_LOADED = 'FAILURE_LOADED',
+    SET_LOCALE = 'SET_LOCALE',
 }
 
 interface IPizzaSetAction {
@@ -47,6 +49,12 @@ interface IPizzaFailureLoadedAction {
 }
 
 
+interface SetLocale {
+    type: PizzaActionTypes.SET_LOCALE;
+    payload: string
+}
+
+
 export type PizzaAction = IPizzaSetAction
   | IPizzaLoadedAction
-  | IPizzaFailureLoadedAction
+  | IPizzaFailureLoadedAction | SetLocale

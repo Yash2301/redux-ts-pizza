@@ -7,6 +7,7 @@ const initialState: IFiltersState = {
 		type: 'popular',
 		order: 'desc',
 	},
+	locale: 'en'
 };
 
 

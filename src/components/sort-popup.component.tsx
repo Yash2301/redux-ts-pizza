@@ -8,12 +8,13 @@ import { IFiltersSortByState } from "../types/filters.type";
 interface ISortPopup {
   items: ISortItems[],
   activeSortType: string,
-  onClickSortType: (type: IFiltersSortByState) => void
+  onClickSortType: (type: IFiltersSortByState) => void,
+  label: string
 }
 
 
 const SortPopup = React.memo((props: ISortPopup) => {
-  const { items, activeSortType, onClickSortType } = props;
+  const { items, activeSortType, onClickSortType, label } = props;
 
   const { ref, isComponentVisible, setIsComponentVisible } = useComponentVisible(false);
 
@@ -45,7 +46,7 @@ const SortPopup = React.memo((props: ISortPopup) => {
             fill="#2C2C2C"
           />
         </svg>
-        <b>Сортировка по:</b>
+        <b>{label}</b>
         <span data-testid="sort-visible" onClick={ toggleVisiblePopup }>{ activeLabel }</span>
       </div>
       { isComponentVisible &&

@@ -4,7 +4,8 @@ export interface IFiltersSortByState {
 }
 export interface IFiltersState {
     category: null | number,
-    sortBy: IFiltersSortByState
+    sortBy: IFiltersSortByState,
+    locale: string
 }
 
 

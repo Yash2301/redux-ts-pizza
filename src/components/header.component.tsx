@@ -1,44 +1,58 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
-import { useSelector } from 'react-redux';
+import React, { useEffect } from "react";
+import {Link} from "react-router-dom";
+import {useDispatch, useSelector} from "react-redux";
 
-import Button from './button.component';
+import Button from "./button.component";
 
-import logoSvg from '../assets/img/pizza-logo.svg';
+import logoSvg from "../assets/img/pizza-logo.svg";
 
-import { RootState } from "../store/reducers";
-
+import {RootState} from "../store/reducers";
+import SortPopup from "./sort-popup.component";
+import {useTranslation} from "react-i18next";
+import { setLocale } from "../store/actions/pizzas.action";
+import i18n from "./../i18n";
 
 
 const Header = (): JSX.Element => {
-  const { totalPrice, totalCount } = useSelector(({ cart }: RootState) => cart);
+  const {totalPrice, totalCount} = useSelector(({cart}: RootState) => cart);
+  const locale = useSelector(({pizzas}: RootState) => pizzas.locale);
+  const {t} = useTranslation();
+  const dispatch = useDispatch();
+
+  useEffect(()=>{
+    i18n.changeLanguage(locale);
+  },[])
+
+  const changeLanguageHandler = (lang: string) => {
+    i18n.changeLanguage(lang);
+    dispatch(setLocale(lang))
+  };
 
   return (
     <header className="header">
       <div className="container">
-
         <Link to="/">
           <div className="header__logo">
-            <img width="38" src={ logoSvg } alt="Pizza logo" />
+            <img width="38" src={logoSvg} alt="Pizza logo" />
             <div>
-              <h1>React Pizza</h1>
-              <p>самая вкусная пицца во вселенной</p>
+              <h1>{t("shopName")}</h1>
+              <p>{t("subtitle")}</p>
             </div>
           </div>
         </Link>
 
         <div className="header__cart">
-
           <Link to="/cart">
             <Button className="button--cart">
-              <span>{ totalPrice } ₽</span>
-              <div className="button__delimiter"/>
+              <span>{totalPrice} ₽</span>
+              <div className="button__delimiter" />
               <svg
                 width="18"
                 height="18"
                 viewBox="0 0 18 18"
                 fill="none"
-                xmlns="http://www.w3.org/2000/svg">
+                xmlns="http://www.w3.org/2000/svg"
+              >
                 <path
                   d="M6.33333 16.3333C7.06971 16.3333 7.66667 15.7364 7.66667 15C7.66667 14.2636 7.06971 13.6667 6.33333 13.6667C5.59695 13.6667 5 14.2636 5 15C5 15.7364 5.59695 16.3333 6.33333 16.3333Z"
                   stroke="white"
@@ -61,15 +75,24 @@ const Header = (): JSX.Element => {
                   strokeLinejoin="round"
                 />
               </svg>
-              <span>{ totalCount }</span>
+              <span>{totalCount}</span>
             </Button>
           </Link>
-
+        <SortPopup
+          activeSortType={locale}
+          items={[
+            {type: "en", name: "English", order: ""},
+            {type: "hi", name: "Hindi", order: ""},
+          ]}
+          onClickSortType={item => {
+            changeLanguageHandler(item.type);
+          }}
+          label={""}
+        />
         </div>
       </div>
     </header>
-  )
-}
-
+  );
+};
 
 export default Header;

@@ -11,6 +11,7 @@ import { RootState } from "../store/reducers";
 
 import { IFiltersSortByState } from "../types/filters.type";
 import { IPizzasBlockNewObject } from "../types/pizzas.type";
+import { useTranslation } from "react-i18next";
 
 
 export interface ISortItems {
@@ -33,6 +34,8 @@ const Home = () => {
   const { isLoaded, error } = useSelector(({ pizzas }: RootState) => pizzas);
   const { category, sortBy } = useSelector(({ filters }: RootState) => filters);
   const cartItems = useSelector(({ cart }: RootState) => cart.items);
+
+  const { t } = useTranslation();
 
 
   useEffect(() => {
@@ -74,10 +77,11 @@ const Home = () => {
         <SortPopup
           activeSortType={ sortBy.type }
           items={ sortItems }
+          label={'Current Shop :'}
           onClickSortType={ onSelectSortType }
         />
       </div>
-      <h2 className="content__title">Все пиццы</h2>
+      <h2 className="content__title">{t('menu')}</h2>
 
       { (error.length)
         ? <ErrorIndicator>{ error }</ErrorIndicator>

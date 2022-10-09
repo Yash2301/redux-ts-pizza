@@ -10,7 +10,7 @@ import cartReducer from "./cart.reducer";
 const persistConfig = {
 	key: 'react-pizza',
 	storage,
-	whitelist: [ 'cart' ]
+	whitelist: [ 'cart','pizzas' ]
 };
 
 const rootReducer = combineReducers({
